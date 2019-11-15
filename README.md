@@ -1,2 +1,2 @@
-# What-to-eat-
+# What-to-eat
 Focus on food recomendation
