@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <title>设计文档</title>
+</head>
+<body>
+<section id="nice" style="font-size: 16px; color: black; padding: 10px; line-height: 1.6; word-spacing: 0px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; text-align: left; font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><h1 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 28px;"><span><center>今天吃啥APP设计文档</center></span></h1>
+<p style="padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black; font-size: 17px; word-spacing: 3px; letter-spacing: 1px;"><strong style="font-weight: bold; color: black;"></strong></p><center><strong style="font-weight: bold; color: black;"> 项目组长:杨乾成&emsp;张陈杰</strong></center>
+<strong style="font-weight: bold; color: black;"><center>成员:林朝洋&emsp;梁翘楚&emsp;孟苏&emsp;李景怡&emsp;叶沛玟&emsp;赵昕颖</center></strong><p style="padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black; font-size: 17px; word-spacing: 3px; letter-spacing: 1px;"></p>
+<hr style="height: 1px; margin: 0; margin-top: 10px; margin-bottom: 10px; border: none; border-top: 1px dashed #dddddd;">
+<div style="page-break-after: always;"></div>
+<h1 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 28px;"><span>1 设计概述</span></h1>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">1.1 条件与限制</span></h2>
+<ul style="margin-top: 8px; margin-bottom: 8px; padding-left: 25px; color: black; list-style-type: disc;">
+<li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">建议系统的运行寿命：5 年</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">经费、投资方面的来源和限制：自营</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">法律和政策方面的限制：不得侵犯学生和商家权利，不得与相关政策违背</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">硬件环境：性能良好的服务器</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">开发环境：Android Stdio、MySQL、JAVA 相关的开发软件等</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">可利用的信息和资源：参考文献，所学的高级编程语言和数据库知识</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">系统投入使用的最晚时间：2 个月</section></li></ul>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">1.2 运行环境概述</span></h2>
+<ul style="margin-top: 8px; margin-bottom: 8px; padding-left: 25px; color: black; list-style-type: disc;">
+<li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">支持环境：Android ?及以上。</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">数据库：MYSQL。</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">开发平台：Android Stdio。</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">编程语言：JAVA。</section></li></ul>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">1.3 需求概述</span></h2>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">见需求文档。</p>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">1.4 详细设计方法和工具</span></h2>
+<ul style="margin-top: 8px; margin-bottom: 8px; padding-left: 25px; color: black; list-style-type: disc;">
+<li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">数据库设计工具：MySQL</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">界面设计工具：Android Stdio</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgb(1,1,1); font-weight: 500;">原型设计工具：spring+springmvc+mybatis</section></li></ul>
+<h1 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 28px;"><span>2 总体设计</span></h1>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">2.1 系统体系结构</span></h2>
+<figure style="margin: 0; margin-top: 10px; margin-bottom: 10px;"><img src="https://qiniu.mdnice.com/a95ff3be2015d7389c60cdd06ccc3195.png" alt="功能模块的划分" style="display: block; margin: auto; width: 50%; height:50%;"><figcaption style="margin-top: 5px; text-align: center; color: #888; font-size: 14px;">功能模块的划分</figcaption></figure>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">2.2 系统功能结构</span></h2>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>2.2.1 主功能清单</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">主功能模块清单</p>
+<table style="display: table; text-align: left;">
+<thead>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">功能编号</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">功能名称</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">功能简述</th>
+</tr>
+</thead>
+<tbody style="border: 0;">
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F1</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户接口模块</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">在此模块用户可以注册后享受美食推荐服务、进行周边美食探索。</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F2</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">管理员接口模块</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">对于美食信息进行管理，也可以审核用户评价。</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F3</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">数据服务模块</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">对美食的信息，用户的喜好进行管理，实现推荐算法。</td>
+</tr>
+</tbody>
+</table>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>2.2.2 子功能清单</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">子功能清单</p>
+<table style="display: table; text-align: left;">
+<thead>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">功能编号</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">子功能编号</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">子功能名称</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">子功能简述</th>
+</tr>
+</thead>
+<tbody style="border: 0;">
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F1</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F1-1</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户注册</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户可以注册个人信息。</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F1-2</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户登录</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户登录后可以修改个人口味，享受推荐功能。</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F1-3</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">个人爱好设置</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户对甜、辣、酸、咸、油属性的食物设置口味爱好。</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F1-4</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">每日推荐</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">向用户于各个饭点，根据用户喜好、当天天气和用户身体状况等进行菜品推荐。</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F1-5</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">喜好反馈</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户对于推荐的菜品，可以点赞或点踩，反馈给数据库新的喜好特性值。</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F2</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F2-1</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">美食信息管理</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">管理员对美食信息进行管理，可以进行增、删、改操作。</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">F2-2</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户评价管理</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">管理员对用户提交的评价进行审核。</td>
+</tr>
+</tbody>
+</table>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">2.3 功能设计</span></h2>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">用例图：
+<figure style="margin: 0; margin-top: 10px; margin-bottom: 10px;"><img src="https://qiniu.mdnice.com/f2def08c3e73c3e54bb3a59b1abd3ce2.png" alt="用户用例图" style="display: block; margin: left; width: 25%; height:50%;"><figcaption style="margin-top: 5px; text-align: left; color: #888; font-size: 14px;">用户用例图</figcaption></figure></p>
+<figure style="margin: 0; margin-top: 10px; margin-bottom: 10px;"><img src="https://qiniu.mdnice.com/0ea33f981531d00de76f1f44b03d44c9.png" alt="管理员用例图" style="display: block; margin: left; width: 30%; height:60%;"><figcaption style="margin-top: 5px; text-align: left; color: #888; font-size: 14px;">管理员用例图</figcaption></figure>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">类图：</p>
+<figure style="margin: 0; margin-top: 10px; margin-bottom: 10px;"><img src="https://qiniu.mdnice.com/6ab72a3b5fc5e5ae306f0695320189e5.png" alt="类图" style="display: block; margin: 0 auto; width: 50%; height:50%"><figcaption style="margin-top: 5px; text-align: center; color: #888; font-size: 14px;">类图</figcaption></figure>
+<h1 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 28px;"><span>3 程序模块设计说明</span></h1>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">3.1 F1 用户接口模块</span></h2>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.1.1 F1-1 用户注册</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">功能要求：用户使用本 app 需先注册，方便软件根据用户口味喜好进行推荐。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">性能要求：要求 1 秒内作出相应。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">界面要求：简单美观。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输入项：由用户初次点击“推荐”触发该事件，或在登录界面选择注册。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输出项：无</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">程序流程：
+<img src="https://qiniu.mdnice.com/50ab46c92e96e9de6a220fc857478ea0.png" alt="f1-1" style="display: block; margin: left; width: 10%;"></p>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.1.2 F1-2 用户登录</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">功能要求：用户登录后可以点击首页的“开始推荐”按钮进行美食推荐。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">性能要求：要求 1 秒内作出相应。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输入项：由用户点击登录触发该事件。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输出项：登录是否成功。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">程序流程：
+<img src="https://qiniu.mdnice.com/2a83bcf9c82306e09044c5cad11c9d67.png" alt="f1-2" style="display: block; margin: left; width: 10%;"></p>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.1.3 F1-3 个人爱好设置</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">功能要求：用户对于甜、辣、酸、咸、油属性的食物设置口味爱好。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">性能要求：要求 1 秒内作出相应。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输入项：注册成功后自动跳转触发，或登录后在个人中心选择设置。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输出项：用户是否喜爱。</p>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.1.4 F1-4 每日推荐</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">功能要求：向用户于各个饭店，根据用户喜好、当天天气和用户身体状况等进行美食推荐。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">性能要求：要求 1 秒内作出相应。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输入项：时间、用户喜好、天气、用户身体状况，用户点击“推荐”触发。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输出项：根据推荐算法得到的结果。</p>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.1.5 F1-5 喜好反馈</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">功能要求：用户对于推荐的菜品进行点赞或点踩，进一步反馈数据库口味喜好特征。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">性能要求：要求 1 秒内作出相应。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输入项：点赞或点踩。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输出项：用户对某美食的喜好特征。</p>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.1.6 F1-6 探索</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">功能要求：用户根据距离、地区、评价等条件进行筛选或以关键字进行搜索。用户可以点进各结果查看详细信息。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">性能要求：要求 1 秒内作出相应。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输入项：筛选条件，关键字，查看详细信息的请求。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输出项：筛选或搜索结果，商家详情。</p>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">>3.2 F2 管理员接口模块</span></h2>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.2.1 F2-1 美食信息管理</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">功能要求：管理员对美食信息进行管理，可以进行增加、删除、修改等操作。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">性能要求：要求 1 秒内作出相应。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输入项：美食，相应的操作。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输出项：修改的结果。</p>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.2.2 F2-2 用户评价管理</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">功能要求：管理员对用户提交的评价进行审核。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">性能要求：要求 1 秒内作出相应。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输入项：用户提交的评价。</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">输出项：通过或不通过。</p>
+<h2 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 24px;"><span style="background-color: #5c5c5c; color: white; padding: 5px 15px; border-radius: 1px;">3.3 数据结构</span></h2>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.3.1 数据库环境说明</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">软件开发用到的数据库是 MySQL。MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于 Oracle 旗下产品。关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。MySQL 所使用的 SQL 语言是用于访问数据库的最常用标准化语言。</p>
+<h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 20px;"><span>3.3.2 数据库表设计</span></h3>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">（1）用户信息</p>
+<table style="display: table; text-align: left;">
+<thead>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">字段名</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">数据类型</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">长度</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">主键</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">非空</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">描述</th>
+</tr>
+</thead>
+<tbody style="border: 0;">
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">UID</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">20</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户 id</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Phone</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">11</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">手机号（登录账号）</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Password</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">20</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">密码</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Feature</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Int</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">特征值（暂定）</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">（2）菜品信息</p>
+<table style="display: table; text-align: left;">
+<thead>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">字段名</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">数据类型</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">长度</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">主键</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">非空</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">描述</th>
+</tr>
+</thead>
+<tbody style="border: 0;">
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">DID</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">20</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">菜品编号</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">ImagePath</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">50</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">图片存放路径</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Feature</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Int</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">特征值</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Season</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Int</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">季节属性</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">AID</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">20</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否（外键）</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">所在场所编号</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Remark</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Float</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">评价值</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">（3）场所信息</p>
+<table style="display: table; text-align: left;">
+<thead>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">字段名</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">数据类型</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">长度</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">主键</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">非空</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">描述</th>
+</tr>
+</thead>
+<tbody style="border: 0;">
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">AID</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">20</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">场所编号</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Name</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">50</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">场所名</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Address</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">50</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">所属地</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">（4）用户反馈日志</p>
+<table style="display: table; text-align: left;">
+<thead>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">字段名</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">数据类型</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">长度</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">主键</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">非空</th>
+<th style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left; font-weight: bold; background-color: #f0f0f0;">描述</th>
+</tr>
+</thead>
+<tbody style="border: 0;">
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">UID</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">20</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">用户编号</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">DID</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Varchar</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">20</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">菜品编号</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Time</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Date</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">最后一次用餐时间</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: #F8F8F8;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Count</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Int</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">是</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">一周内用餐次数</td>
+</tr>
+<tr style="border: 0; border-top: 1px solid #ccc; background-color: white;">
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Comment</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">Int</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;"></td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">否</td>
+<td style="font-size: 16px; border: 1px solid #ccc; padding: 5px 10px; text-align: left;">评价值（单次）</td>
+</tr>
+</tbody>
+</table>
+<h1 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold; color: black; font-size: 28px;"><span>分工</span></h1>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">UI 界面：赵昕颖、李景怡</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">推荐算法：张陈杰、孟苏、林朝洋</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: black;">服务器端：梁翘楚、杨乾成、叶沛玟</p>
+</section>
+</body>
+</html>
