@@ -1,7 +1,7 @@
 package WTE;
 
-public class ReverseMartrix {
-	public double[][] getConfactor(double[][] data, int h, int v) {			//����ĳһλ�õ�����ʽ
+public class ReverseMartrix {		//矩阵求逆
+	public double[][] getConfactor(double[][] data, int h, int v) {			//计算某一位置的余子式
 	    int H = data.length;
 	    int V = data[0].length;
 	    double[][] newdata = new double[H-1][V-1];
@@ -33,12 +33,12 @@ public class ReverseMartrix {
 	}
 
 
-	public double getMartrixResult(double[][] data) {			//��������Ӧ����ʽ��ֵ
-	     // ��ά�������
+	public double getMartrixResult(double[][] data) {			//计算矩阵对应行列式的值
+	     // 二维矩阵计算
 	    if(data.length == 2) {
 	        return data[0][0]*data[1][1] - data[0][1]*data[1][0];
 	    }
-	     // ��ά���ϵľ������
+	     // 二维以上的矩阵计算
 	    double result = 0;
 	    int num = data.length;
 	    double[] nums = new double[num];
@@ -57,7 +57,7 @@ public class ReverseMartrix {
 	    return result;
 	}
 
-	public double[][] getReverseMartrix(double[][] data) {		//���������
+	public double[][] getReverseMartrix(double[][] data) {		//计算逆矩阵
 		double[][] newdata = new double[data.length][data[0].length];
 		double A = getMartrixResult(data);
 	//  System.out.println(A);
@@ -82,7 +82,7 @@ public class ReverseMartrix {
 	    return newdata;
 	}
 
-	private double[][] trans(double[][] newdata) {			//��ά����ת��
+	private double[][] trans(double[][] newdata) {			//二维数组转置
 	    // TODO Auto-generated method stub
 		double[][] newdata2 = new double[newdata[0].length][newdata.length];
 	    for(int i=0; i<newdata.length; i++) 
