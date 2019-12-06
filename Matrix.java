@@ -6,33 +6,33 @@ import java.util.*;
  
 class Matrix{
  
-    private int row;//�� 
-    private int col;//�� 
+    private int row;//行 
+    private int col;//列 
     double [][]Data;
   
-    public Matrix(int row, int col,double [][]Data) {		//���캯��
+    public Matrix(int row, int col,double [][]Data) {		//构造函数
         this.row = row;
         this.col = col; 
         this.Data = Data;
     }
  
-    public void setMatrix(int row , int col, double value) {	//�趨������ĳһλ�õ�ֵ
+    public void setMatrix(int row , int col, double value) {	//设定矩阵中某一位置的值
         this.Data[row - 1][col - 1] = value;
     }
  
-    public double getMatrix(int row, int col) {		//��ȡ������ĳһλ��
+    public double getMatrix(int row, int col) {		//获取矩阵中某一位置
         return Data[row - 1][col - 1] ;
     }
  
-    public int width() {		//��ȡ����
+    public int width() {		//获取行数
         return row;
     }
  
-    public int height() {		//��ȡ����
+    public int height() {		//获取列数
         return col;
     }
  
-    public Matrix add(Matrix b) {		//����ӷ�
+    public Matrix add(Matrix b) {		//矩阵加法
  
         if(this.width() != b.width() && this.height() != b.height()) {
             return null;
@@ -54,7 +54,7 @@ class Matrix{
  
     }
  
-    public Matrix multiply(Matrix b) {		//����˷�
+    public Matrix multiply(Matrix b) {		//矩阵乘法
  
         if(this.col != b.row) {
             return null;
@@ -86,7 +86,7 @@ class Matrix{
  
     }
  
-    public Matrix transpose() {			//����ת��
+    public Matrix transpose() {			//矩阵转置
  
         double tran[][] = new double[this.col][this.row];
  
@@ -103,7 +103,7 @@ class Matrix{
         return another;
     }
  
-    public void show() {		//��ʾ����
+    public void show() {		//显示矩阵
     	for(int i=0;i<row;i++) {
     		for(int j=0;j<col;j++)
     			System.out.print(Data[i][j]+"  ");
@@ -112,37 +112,7 @@ class Matrix{
     		
     }
     
- /*   public String toString() {	//ת��Ϊ�ַ���
- 
-        DecimalFormat df = new DecimalFormat("0");
- 
-        String result = "";
- 
-        //result += df.format(Data[0][0]);
- 
-        
- 
-        for(int i = 0;i<this.row;i++) {
- 
-            result += df.format(Data[i][0]);
- 
-            for(int j = 1;j<this.col;j++) {
- 
-                result += " " + df.format(Data[i][j]);
- 
-            }
- 
-            result +=  "\n";
- 
-        }
- 
-        return result;
- 
-    
- 
-    }*/
-    
-    public Matrix reverse() {		//��������
+    public Matrix reverse() {		//矩阵求逆
         ReverseMartrix rm = new ReverseMartrix();
         
     	Matrix newMatrix = new Matrix(row,col,rm.getReverseMartrix(Data));
