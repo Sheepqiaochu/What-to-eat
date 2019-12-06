@@ -36,7 +36,7 @@ public double getf(int f) {	//获取特征值
 	}
 }
 
-public void setf(double i1,double i2,double i3,double i4,double i5) {
+public void setf(double i1,double i2,double i3,double i4,double i5) { 	//设置特征值
 	this.f1 = i1;
 	this.f2 = i2;
 	this.f3 = i3;
