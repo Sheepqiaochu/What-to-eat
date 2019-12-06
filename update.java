@@ -1,21 +1,21 @@
 package WTE;
 import java.util.*;
 
-public class update {		//�û�-��Ʒ�����࣬���ڸ����û�-��������X����Ʒ-��������Y
-private Matrix A;			//�û�-��Ʒϡ�����Ķ�ά����
-private Matrix X;			//�û�-����ֵ����Ķ�ά����
-private Matrix Y;			//��Ʒ-����ֵ����Ķ�ά����
-private int m;				//���������
-private int n;				//���������
-private Map<String,Integer> users = new HashMap<>();	//��ID�������±��ӳ��
+public class update {		//用户-物品矩阵类，用于更新用户-特征矩阵X及物品-特征矩阵Y
+private Matrix A;			//用户-物品稀疏矩阵的二维数组
+private Matrix X;			//用户-特征值矩阵的二维数组
+private Matrix Y;			//物品-特征值矩阵的二维数组
+private int m;				//数组的行数
+private int n;				//数组的列数
+private Map<String,Integer> users = new HashMap<>();	//从ID到数组下标的映射
 
-public update(User p[],Dish c[]) {		//���캯��
+public update(User p[],Dish c[]) {		//构造函数
 	m = p.length;
 	n = c.length;
 
 	double A1[][] = new double[m][n];
 	for(int i=0;i<m;i++) {
-		users.put(p[i].getid(), i);		//����ӳ��
+		users.put(p[i].getid(), i);		//建立映射
 		
 		for(int j=0;j<n;j++) {
 			A1[i][j] = 0;
@@ -39,13 +39,13 @@ public update(User p[],Dish c[]) {		//���캯��
 	Y = new Matrix(n ,5 ,Y1);
 }
 
-public void show() {		//��ʾ����A
+public void show() {		//显示矩阵A
 	A.show();
 	X.show();
 	Y.show();
 }
 
-public void update_user(Evaluate o) {		//�����û�-��Ʒ����
+public void update_user(Evaluate o) {		//更新用户-物品矩阵
 	int i = users.get(o.getid());
 	
 	for(int j=0;j<n;j++)
@@ -54,7 +54,7 @@ public void update_user(Evaluate o) {		//�����û�-��Ʒ����
 			
 }
 
-public void resolve(User p[],Dish c[]){		//������A�ֽ�ΪX��Y
+public void resolve(User p[],Dish c[]){		//将矩阵A分解为X，Y
 	
 	double e[][] = new double[5][5];
 	for(int i=0;i<5;i++)
