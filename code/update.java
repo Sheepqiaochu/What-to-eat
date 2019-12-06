@@ -54,7 +54,7 @@ public void update_user(Evaluate o) {		//更新用户-物品矩阵
 			
 }
 
-public void resolve(User p[],Dish c[]){		//将矩阵A分解为X，Y
+public void resolve(User p[],Dish c[]){		//将矩阵A分解为矩阵X，Y
 	
 	double e[][] = new double[5][5];
 	for(int i=0;i<5;i++)
