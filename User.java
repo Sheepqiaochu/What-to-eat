@@ -2,15 +2,15 @@ package WTE;
 
 import java.util.*;
 
-public class User {		//�û�-��������X
-private String UID;		//�û�ID
-private double f1;			//����ֵf1-f5
+public class User {		//用户-特征矩阵X
+private String UID;		//用户ID
+private double f1;			//特征值f1-f5
 private double f2;
 private double f3;
 private double f4;
 private double f5;
 
-public User(String id,double i1,double i2,double i3,double i4,double i5) {			//���캯��
+public User(String id,double i1,double i2,double i3,double i4,double i5) {			//构造函数
 	this.UID = id;
 	this.f1 = i1;
 	this.f2 = i2;
@@ -19,15 +19,15 @@ public User(String id,double i1,double i2,double i3,double i4,double i5) {			//�
 	this.f5 = i5;
 }
 
-public void show() {			//��ʾ����X
+public void show() {			//显示矩阵X
 	System.out.println(this.UID + "  " + this.f1 + "  " + this.f2 + "  " + this.f3 + "  " + this.f4 + "  " + this.f5);
 }
 
-public String getid() {			//��ȡID
+public String getid() {			//获取ID
 	return UID;
 }
 
-public double getf(int f) {		//��ȡ����ֵ
+public double getf(int f) {		//获取特征值
 	switch(f) {
 	case 1:return f1;
 	case 2:return f2;
@@ -46,7 +46,7 @@ public void setf(double i1,double i2,double i3,double i4,double i5) {
 	this.f5 = i5;
 }
 
-public void recommend(Dish c[],Dish result[]) {		//��������ֵƽ����֮�͵��Ƽ��㷨
+public void recommend(Dish c[],Dish result[]) {		//基于特征值平方差之和的推荐算法
 	
 	Double point[] = new Double[c.length];
 	
@@ -67,22 +67,22 @@ public void recommend(Dish c[],Dish result[]) {		//��������ֵƽ�
 }
 }
 
-class suit implements Comparable<suit>{			//��ƷID������ֵ���ֵĽṹ��
+class suit implements Comparable<suit>{			//物品ID和特征值评分的结构体
 	private Dish id;
 	private Double point;
 	
-	public suit(Dish id,double po) {		//���캯��
+	public suit(Dish id,double po) {		//构造函数
 		this.id = id;
 		this.point = po;
 	}
-	public Double getpoint() {			//��ȡ����ֵ����
+	public Double getpoint() {			//获取特征值评分
 	    return point;
 	}
-	public Dish getid() {				//��ȡID
+	public Dish getid() {				//获取ID
 		return id;
 	}
 
-    public int compareTo(suit o) {		//��д�Ƚ��㷨������sort����
+    public int compareTo(suit o) {		//重写比较算法，用于sort排序
         return this.point.compareTo(o.getpoint());
     }
 
