@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 import java.util.*;
  
-class Matrix{
+class Matrix{    //矩阵类
  
     private int row;//行 
     private int col;//列 
