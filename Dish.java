@@ -1,0 +1,48 @@
+package WTE;
+
+public class Dish {			//��Ʒ-��������Y
+private String DID;			//��ƷID
+private double f1;				//����ֵf1-f5
+private double f2;
+private double f3;
+private double f4;
+private double f5;
+
+public Dish(String id,double i1,double i2,double i3,double i4,double i5) {		//���캯��
+	this.DID = id;
+	this.f1 = i1;
+	this.f2 = i2;
+	this.f3 = i3;
+	this.f4 = i4;
+	this.f5 = i5;
+}
+
+public void show() {		//��ʾ����Y
+	System.out.println(this.DID + "  " + this.f1 + "  " + this.f2 + "  " + this.f3 + "  " + this.f4 +"  " + this.f5);
+}
+
+public String getid() {		//��ȡID
+	return DID;
+}
+
+public double getf(int f) {	//��ȡ����ֵ
+	switch(f) {
+	case 1:return f1;
+	case 2:return f2;
+	case 3:return f3;
+	case 4:return f4;
+	case 5:return f5;
+	default:return 0;
+	}
+}
+
+public void setf(double i1,double i2,double i3,double i4,double i5) {
+	this.f1 = i1;
+	this.f2 = i2;
+	this.f3 = i3;
+	this.f4 = i4;
+	this.f5 = i5;
+}
+
+
+}
