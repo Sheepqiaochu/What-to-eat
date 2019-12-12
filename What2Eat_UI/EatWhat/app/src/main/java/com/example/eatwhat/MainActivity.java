@@ -1,7 +1,12 @@
 package com.example.eatwhat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -18,19 +23,24 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.net.HttpURLConnection;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import com.yinglan.shadowimageview.ShadowImageView;
+import com.sackcentury.shinebuttonlib.ShineButton;
+import ezy.ui.view.RoundButton;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private ImageView imageView;
+    private ShadowImageView imageView;
     private int[] foodimages = new int[]{   //食物图片，暂时是从文件夹里弄来的
-            R.drawable.food1,
-            R.drawable.food2,
-            R.drawable.food3,
+            R.drawable.apple_pic,
+            R.drawable.banana_pic,
+            R.drawable.cherry_pic
     };
     private int refreshtime=0;  //刷新次数
 
@@ -46,16 +56,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //sendRequestWithOkHttp();    //通过okhttp传送请求
 
-        Button button=(Button)findViewById(R.id.button_refresh);
+        RoundButton button=(RoundButton)findViewById(R.id.button_refresh) ;
+        //Button button=(Button)findViewById(R.id.button_refresh);
         //修改的图片部分
         //***********************
-        imageView=(ImageView)findViewById(R.id.image_food);
+        //imageView=(ImageView)findViewById(R.id.image_food);
+        imageView=(ShadowImageView)findViewById(R.id.image_food);
         button.setOnClickListener(this);
 
 
         TextView textview = (TextView) findViewById(R.id.top_menu);
         Typeface typeface=Typeface.createFromAsset(getAssets(),"fonts/font_main#1.ttf");
         textview.setTypeface(typeface);
+
+        //like & dislike
+        //******************************************************
+        //从这里可以直接修改推荐度还是？？？？
+        //******************************************************
+        ShineButton likeButton;
+        ShineButton dislikeButton;
+
+        likeButton=findViewById(R.id.bt_like);
+        dislikeButton=findViewById(R.id.bt_dislike);
+        //修改ShineButton的底图
+        dislikeButton.setShapeResource(R.drawable.dislike);
+
+        //设置两个按钮的点击事件
+        likeButton.setOnClickListener(this);
+        dislikeButton.setOnClickListener(this);
+
         ActivityCollector.addActivity(this);
     }
 
@@ -82,6 +111,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 refreshtime=(refreshtime+1)%3;
                 imageView.setImageResource(foodimages[refreshtime]);
                 break;
+            case R.id.bt_like:      //点击like按钮
+                //调用setExcellence函数改变推荐度？？
+                //假装有代码了
+                break;
+            case R.id.bt_dislike:   //点击dislike按钮
+                //调用setExcellence函数改变推荐度？？
+                //假装也有代码
+                break;
+
             default:
                 break;
         }

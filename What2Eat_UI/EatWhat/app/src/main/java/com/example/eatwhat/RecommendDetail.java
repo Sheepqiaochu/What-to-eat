@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.yinglan.shadowimageview.ShadowImageView;
 
 public class RecommendDetail extends AppCompatActivity {
 
@@ -33,12 +35,28 @@ public class RecommendDetail extends AppCompatActivity {
         }
 
         food=(RecommendFood)getIntent().getSerializableExtra("food");
+
+        /*
         imageView=(ImageView)findViewById(R.id.image_recommend_detail); //设置图像源
         imageView.setImageResource(food.getImageId());
-        textView=(TextView)findViewById(R.id.text_recommend_detail);    //设置详细介绍源
-        textView.setText(food.getName());
+        */
+        ShadowImageView imageView;
+        imageView=(ShadowImageView)findViewById(R.id.image_recommend_detail); //设置图像源
+        imageView.setImageResource(food.getImageId());
 
-        Button returnbutton=(Button)findViewById(R.id.button_return);    //按返回按钮
+        textView=(TextView)findViewById(R.id.tv_fooddetail);    //设置标题
+        textView.setText(food.getName()+"详细介绍");
+
+        textView=(TextView)findViewById(R.id.text_recommend_name);    //设置名称源
+        textView.setText(food.getName());
+        textView=(TextView)findViewById(R.id.text_recommend_price);    //设置价格源
+        textView.setText("$"+food.getPrice());
+        textView=(TextView)findViewById(R.id.text_recommend_excellence);    //设置推荐度源
+        textView.setText(food.getExcellence()+"%");
+        textView=(TextView)findViewById(R.id.text_recommend_detail);    //设置详细介绍源
+        textView.setText(food.getDetail());
+
+        ImageButton returnbutton=(ImageButton)findViewById(R.id.button_return);    //按返回按钮
 
         returnbutton.setOnClickListener(new View.OnClickListener(){
             @Override

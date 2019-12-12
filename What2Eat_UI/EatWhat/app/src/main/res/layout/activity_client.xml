@@ -14,13 +14,26 @@
         android:layout_marginTop="10dp"
         >
 
+        <!--
         <ImageView
             android:id="@+id/user_pic"
+            android:layout_marginLeft="20dp"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="top"
             android:layout_weight="1"
-            android:src="@drawable/user_pic" />
+            android:src="@drawable/user_pic1" />
+            -->
+        <com.yinglan.shadowimageview.ShadowImageView
+            android:id="@+id/user_pic"
+            android:layout_marginLeft="10dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="top"
+            android:layout_weight="1"
+            app:shadowColor="@color/black_alpha_128"
+            app:shadowRound="20dp"
+            app:shadowSrc="@drawable/user_pic1" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -35,16 +48,27 @@
                 android:textColor="#444"
                 android:textSize="36sp"
                 android:typeface="serif" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginTop="10dp"
-                android:text="OtherInfomation"
-                android:textColor="#444"
-                android:textSize="28sp"
-                android:typeface="monospace" />
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    app:srcCompat="@mipmap/ic_singup_mobile2" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="10dp"
+                    android:text="68779110"
+                    android:textColor="#444"
+                    android:textSize="28sp"
+                    android:typeface="monospace" />
+            </LinearLayout>
+
         </LinearLayout>
 
 

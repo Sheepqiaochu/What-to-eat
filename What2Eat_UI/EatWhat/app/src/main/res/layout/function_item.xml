@@ -7,9 +7,9 @@
 
     <ImageView
         android:id="@+id/function_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
         />
 
     <TextView
@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:textSize="16dp"
         android:layout_marginLeft="10dp"
         />
 </LinearLayout>

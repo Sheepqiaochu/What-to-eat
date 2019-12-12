@@ -5,11 +5,18 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.eatwhat"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+
+        targetCompatibility JavaVersion.VERSION_1_8
+
     }
     buildTypes {
         release {
@@ -27,8 +34,13 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.squareup.okio:okio:1.8.0'
     implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'com.github.ome450901:SimpleRatingBar:1.4.3'
+    implementation 'com.yinglan.shadowimageview:shadowimageview:1.0.4'
+    implementation 'com.sackcentury:shinebutton:1.0.0'
+    implementation 'com.github.czy1121:roundbutton:1.1.0'
+    implementation 'com.github.arcadefire:nice-spinner:1.4.4'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
@@ -38,5 +50,7 @@ allprojects {
     repositories {
 
         maven { url 'https://jitpack.io' }
+        mavenCentral()
+
     }
 }

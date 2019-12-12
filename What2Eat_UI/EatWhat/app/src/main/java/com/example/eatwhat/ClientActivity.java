@@ -65,12 +65,14 @@ public class ClientActivity extends AppCompatActivity {
         for(int i=0;i<1;i++) {
             Function fun1=new Function("用户登录/注册",R.drawable.fun1_pic);
             functionList.add(fun1);
-            Function fun2=new Function("Function2",R.drawable.fun2_pic);
+            Function fun2=new Function("我的评价",R.drawable.fun2_pic);
             functionList.add(fun2);
-            Function fun3=new Function("Function3",R.drawable.fun3_pic);
+            Function fun3=new Function("我的收藏",R.drawable.fun3_pic);
             functionList.add(fun3);
-            Function fun4=new Function("Function4",R.drawable.fun4_pic);
+            Function fun4=new Function("饮食习惯",R.drawable.fun4_pic);
             functionList.add(fun4);
+            Function fun5=new Function("账号管理",R.drawable.fun5_pic);
+            functionList.add(fun5);
         }
     }
 

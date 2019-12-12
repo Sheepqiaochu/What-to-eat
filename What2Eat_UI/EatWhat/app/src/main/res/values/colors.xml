@@ -28,4 +28,9 @@
 
     <color name="bg_press">#ebebeb</color>\
     <color name="bg_press_material">#d4d4d4</color>
+
+    <color name="text_orange">#FF9800</color>
+    <color name="text_grey">#969696</color>
+    <color name="grey">#696969</color>
+    <color name="green">#8BC34A</color>
 </resources>

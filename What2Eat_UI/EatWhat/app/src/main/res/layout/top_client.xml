@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:text="用户信息"
+        android:text="个人中心"
         android:textColor="#444"
         android:textSize="49sp"
         android:textStyle="bold"

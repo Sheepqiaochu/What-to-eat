@@ -41,7 +41,7 @@
             android:layout_height="24dp"
             android:layout_marginLeft="14dp"
             android:contentDescription="@null"
-            app:srcCompat="@mipmap/ic_login_username"
+            app:srcCompat="@mipmap/ic_singup_mobile"
             tools:ignore="RtlHardcoded" />
 
         <View

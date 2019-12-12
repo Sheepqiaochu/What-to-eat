@@ -11,6 +11,7 @@ import android.text.style.TtsSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,17 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
+        //点击返回 回到上一页（此时是“我的”界面）
+        //顶端返回按钮
+        ImageButton returnbutton=(ImageButton)findViewById(R.id.button_return2);
+        returnbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //添加点击事件
+                Intent intent=new Intent(Login.this,ClientActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void init() {
