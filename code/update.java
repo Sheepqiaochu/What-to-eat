@@ -7,7 +7,7 @@ private Matrix X;			//用户-特征值矩阵的二维数组
 private Matrix Y;			//物品-特征值矩阵的二维数组
 private int m;				//数组的行数
 private int n;				//数组的列数
-private Map<String,Integer> users = new HashMap<>();	//从ID到数组下标的映射
+private Map<Integer,Integer> users = new HashMap<>();	//从ID到数组下标的映射
 
 public update(User p[],Dish c[]) {		//构造函数
 	m = p.length;
@@ -54,7 +54,7 @@ public void update_user(Evaluate o) {		//更新用户-物品矩阵
 			
 }
 
-public void resolve(User p[],Dish c[]){		//将矩阵A分解为矩阵X，Y
+public void resolve(User p[],Dish c[]){		//将矩阵A分解为X，Y
 	
 	double e[][] = new double[5][5];
 	for(int i=0;i<5;i++)
