@@ -1,10 +1,10 @@
 package WTE;
 
 public class Evaluate {			//用户评价类
-private String UID;				//用户ID
+private int UID;				//用户ID
 private Double point[];			//评价值数组
 
-public String getid() {			//获取id
+public int getid() {			//获取id
 	return UID;
 }
 
