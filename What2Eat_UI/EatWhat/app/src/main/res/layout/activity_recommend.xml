@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--顶部-->
+    <include layout="@layout/top_recommend"/>
+    <!--搜索框-->
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="搜索内容" />
+    <!--排序、筛选-->
+    <LinearLayout
+        android:id="@+id/lay_sort_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="0dp">
+
+        <Button
+            android:id="@+id/sort_by_excellence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_sort_button"
+            android:elevation="0dp"
+            android:outlineProvider="none"
+            android:textColor="@color/account_input_color"
+            android:textSize="@dimen/font_18"
+            tools:targetApi="lollipop"
+            android:text="按推荐度降序"/>
+
+        <Button
+            android:id="@+id/sort_by_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_sort_button"
+            android:elevation="0dp"
+            android:outlineProvider="none"
+            android:textColor="@color/account_input_color"
+            android:textSize="@dimen/font_18"
+            tools:targetApi="lollipop"
+            android:text="按价格升序"/>
+
+        <RelativeLayout
+            android:id="@+id/spinner_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:background="@drawable/bg_sort_button">
+
+            <TextView
+                android:id="@+id/tv_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:layout_centerInParent="true"
+                android:text="筛选"
+                android:textColor="@color/account_input_color"
+                android:textSize="@dimen/font_18"
+                android:gravity="right"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/tv_sort"
+                android:layout_weight="1" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--中间-->
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--食物们-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"/>
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="right"
+            android:background="#FFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"
+                >
+                <org.angmarch.views.NiceSpinner
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/sp_spicy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:textTint="@color/account_input_color"
+                    android:textSize="@dimen/font_18"
+                    />
+
+                <org.angmarch.views.NiceSpinner
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/sp_sweet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:textTint="@color/account_input_color"
+                    android:textSize="@dimen/font_18"/>
+
+                <org.angmarch.views.NiceSpinner
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/sp_salty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:textTint="@color/account_input_color"
+                    android:textSize="@dimen/font_18"
+                    />
+<!--
+                <RadioGroup
+                    android:id="@+id/radio_spicy"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal">
+                    <RadioButton
+                        android:id="@+id/spicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="辣"
+                        style="@style/feayure_item"/>
+                    <RadioButton
+                        android:id="@+id/midspicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="中辣"
+                        style="@style/feayure_item"/>
+                    <RadioButton
+                        android:id="@+id/nospicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="不辣"
+                        style="@style/feayure_item"/>
+                </RadioGroup>
+                <RadioGroup
+                    android:id="@+id/radio_sweet"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal">
+                    <RadioButton
+                        android:id="@+id/sweet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="甜"
+                        style="@style/feayure_item"/>
+                    <RadioButton
+                        android:id="@+id/midsweet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="中甜"
+                        style="@style/feayure_item"/>
+                    <RadioButton
+                        android:id="@+id/nosweet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="不甜"
+                        style="@style/feayure_item"/>
+                </RadioGroup>
+                <RadioGroup
+                    android:id="@+id/radio_salty"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal">
+                    <RadioButton
+                        android:id="@+id/salty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="咸"
+                        style="@style/feayure_item"/>
+                    <RadioButton
+                        android:id="@+id/midsalty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="中咸"
+                        style="@style/feayure_item"/>
+                    <RadioButton
+                        android:id="@+id/nosalty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="不咸"
+                        style="@style/feayure_item"/>
+                </RadioGroup>
+                -->
+            </LinearLayout>
+<!--
+            <Button
+                android:id="@+id/confirm_select1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="确定"/>
+                -->
+            <ezy.ui.view.RoundButton
+                android:id="@+id/confirm_select"
+                style="@style/RoundButton"
+                android:text=" 就这么决定了！ "
+                android:textSize="20sp"
+                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                app:btnCornerRadius="40dp"
+                app:btnSolidColor="@color/colorPrimary"/>
+        </RelativeLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+    <!--底部-->
+    <com.example.eatwhat.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"/>
+
+</LinearLayout>

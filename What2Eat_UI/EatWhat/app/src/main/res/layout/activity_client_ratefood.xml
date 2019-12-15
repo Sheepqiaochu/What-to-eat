@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="给菜打个分"
+            android:textColor="#444"
+            android:textSize="36sp"
+            android:typeface="serif"
+
+            />
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="top"
+            android:src="@drawable/food1"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="给第一个菜打个分"
+                    android:textColor="#444"
+                    android:textSize="24sp"
+                    />
+                <com.willy.ratingbar.ScaleRatingBar
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/simpleRatingBar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srb_numStars="5"
+                    app:srb_minimumStars="1"
+                    app:srb_rating="2"
+                    app:srb_starWidth="30dp"
+                    app:srb_starHeight="30dp"
+                    app:srb_starPadding="15dp"
+                    app:srb_stepSize="0.5"
+                    app:srb_isIndicator="false"
+                    app:srb_clickable="true"
+                    app:srb_scrollable="true"
+                    app:srb_clearRatingEnabled="true">
+                </com.willy.ratingbar.ScaleRatingBar>
+
+        </LinearLayout>
+
+</LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="top"
+                    android:src="@drawable/food2"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="给第二个菜打个分"
+                            android:textColor="#444"
+                            android:textSize="24sp"
+                            />
+                        <com.willy.ratingbar.ScaleRatingBar
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/simpleRatingBar2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srb_numStars="5"
+                            app:srb_minimumStars="1"
+                            app:srb_rating="2"
+                            app:srb_starWidth="30dp"
+                            app:srb_starHeight="30dp"
+                            app:srb_starPadding="15dp"
+                            app:srb_stepSize="0.5"
+                            app:srb_isIndicator="false"
+                            app:srb_clickable="true"
+                            app:srb_scrollable="true"
+                            app:srb_clearRatingEnabled="true">
+                        </com.willy.ratingbar.ScaleRatingBar>
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_rateSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/bg_login_submit"
+            android:elevation="0dp"
+            android:outlineProvider="none"
+            android:text="提交俺的评分"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_18"
+            tools:targetApi="lollipop" />
+
+
+
+
+
+
+
+</LinearLayout>
