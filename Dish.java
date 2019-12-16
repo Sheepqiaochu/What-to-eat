@@ -1,14 +1,14 @@
 package WTE;
 
-public class Dish {			//ç‰©å“ç±»
-private int DID;			//ç‰©å“ID
-private double f1;				//ç‰©å“ç‰¹å¾å€¼f1-f5
+public class Dish {			//ÎïÆ·-ÌØÕ÷¾ØÕóY
+private String DID;			//ÎïÆ·ID
+private double f1;				//ÌØÕ÷Öµf1-f5
 private double f2;
 private double f3;
 private double f4;
 private double f5;
 
-public Dish(int id,double i1,double i2,double i3,double i4,double i5) {		//æ„é€ å‡½æ•°
+public Dish(String id,double i1,double i2,double i3,double i4,double i5) {		//¹¹Ôìº¯Êı
 	this.DID = id;
 	this.f1 = i1;
 	this.f2 = i2;
@@ -17,15 +17,15 @@ public Dish(int id,double i1,double i2,double i3,double i4,double i5) {		//æ„é€
 	this.f5 = i5;
 }
 
-public void show() {		//æ˜¾ç¤ºä¿¡æ¯
+public void show() {		//ÏÔÊ¾¾ØÕóY
 	System.out.println(this.DID + "  " + this.f1 + "  " + this.f2 + "  " + this.f3 + "  " + this.f4 +"  " + this.f5);
 }
 
-public int getid() {		//è·å–ID
+public String getid() {		//»ñÈ¡ID
 	return DID;
 }
 
-public double getf(int f) {	//è·å–ç‰¹å¾å€¼Öµ
+public double getf(int f) {	//»ñÈ¡ÌØÕ÷Öµ
 	switch(f) {
 	case 1:return f1;
 	case 2:return f2;
@@ -36,7 +36,7 @@ public double getf(int f) {	//è·å–ç‰¹å¾å€¼Öµ
 	}
 }
 
-public void setf(double i1,double i2,double i3,double i4,double i5) {	//è®¾ç½®ç‰¹å¾å€¼
+public void setf(double i1,double i2,double i3,double i4,double i5) {
 	this.f1 = i1;
 	this.f2 = i2;
 	this.f3 = i3;

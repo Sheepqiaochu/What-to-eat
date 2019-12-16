@@ -1,26 +1,26 @@
 package WTE;
 import java.util.*;
 
-public class update {		//ç”¨äºç®—æ³•åˆ†æçš„ç±»
-private Matrix A;			//ç”¨æˆ·-ç‰©å“è¯„åˆ†çŸ©é˜µ
-private Matrix X;			//ç”¨æˆ·ç‰¹å¾å€¼çŸ©é˜µ
-private Matrix Y;			//ç‰©å“-ç‰¹å¾å€¼çŸ©é˜µ
-private int m;				//ç”¨æˆ·æ•°é‡ï¼ˆè¡Œæ•°ï¼‰
-private int n;				//ç‰©å“æ•°é‡ï¼ˆåˆ—æ•°ï¼‰
-private Map<Integer,Integer> users = new HashMap<>();	//ç”¨æˆ·IDä¸ä¸‹æ ‡çš„æ˜ å°„
+public class update {		//ÓÃ»§-ÎïÆ·¾ØÕóÀà£¬ÓÃÓÚ¸üĞÂÓÃ»§-ÌØÕ÷¾ØÕóX¼°ÎïÆ·-ÌØÕ÷¾ØÕóY
+private Matrix A;			//ÓÃ»§-ÎïÆ·Ï¡Êè¾ØÕóµÄ¶şÎ¬Êı×é
+private Matrix X;			//ÓÃ»§-ÌØÕ÷Öµ¾ØÕóµÄ¶şÎ¬Êı×é
+private Matrix Y;			//ÎïÆ·-ÌØÕ÷Öµ¾ØÕóµÄ¶şÎ¬Êı×é
+private int m;				//Êı×éµÄĞĞÊı
+private int n;				//Êı×éµÄÁĞÊı
+private Map<String,Integer> users = new HashMap<>();	//´ÓIDµ½Êı×éÏÂ±êµÄÓ³Éä
 
-public update(List<User> p,List<Dish> c) {		//æ„é€ å‡½æ•°
-	m = p.size();
-	n = c.size();
+public update(User p[],Dish c[]) {		//¹¹Ôìº¯Êı
+	m = p.length;
+	n = c.length;
 
 	double A1[][] = new double[m][n];
 	for(int i=0;i<m;i++) {
-		users.put(p.get(i).getid(), i);		//å»ºç«‹æ˜ å°„
+		users.put(p[i].getid(), i);		//½¨Á¢Ó³Éä
 		
 		for(int j=0;j<n;j++) {
 			A1[i][j] = 0;
 			for(int k=1;k<=5;k++)
-				A1[i][j] += p.get(i).getf(k)*c.get(j).getf(k);		//A = X * YT
+				A1[i][j] += p[i].getf(k)*c[j].getf(k);		//A = X * YT
 		}
 	}
 	
@@ -29,31 +29,32 @@ public update(List<User> p,List<Dish> c) {		//æ„é€ å‡½æ•°
 	double X1[][] = new double[m][5];
 	for(int i=0;i<m;i++)
 		for(int j=0;j<5;j++)
-			X1[i][j] = p.get(i).getf(j+1);
+			X1[i][j] = p[i].getf(j+1);
 	X = new Matrix(m ,5 ,X1);
 	
 	double Y1[][] = new double[n][5];
 	for(int i=0;i<n;i++)
 		for(int j=0;j<5;j++)
-			Y1[i][j] = c.get(i).getf(j+1);
+			Y1[i][j] = c[i].getf(j+1);
 	Y = new Matrix(n ,5 ,Y1);
 }
 
-public void show() {		//æ˜¾ç¤ºä¿¡æ¯
+public void show() {		//ÏÔÊ¾¾ØÕóA
 	A.show();
 	X.show();
 	Y.show();
 }
 
-public void update_user(Evaluate o) {		//æ›´æ–°è¯„ä»·çŸ©é˜µ
-	int i = users.get(o.getid());	
+public void update_user(Evaluate o) {		//¸üĞÂÓÃ»§-ÎïÆ·¾ØÕó
+	int i = users.get(o.getid());
+	
 	for(int j=0;j<n;j++)
 		if(o.getpoint(j) != null)
 			A.setMatrix(i+1, j+1, o.getpoint(j));
 			
 }
 
-public void resolve(List<User> p,List<Dish> c){		//å°†Aåˆ†è§£ä¸ºXï¼ŒY
+public void resolve(User p[],Dish c[]){		//½«¾ØÕóA·Ö½âÎªX£¬Y
 	
 	double e[][] = new double[5][5];
 	for(int i=0;i<5;i++)
@@ -73,9 +74,9 @@ public void resolve(List<User> p,List<Dish> c){		//å°†Aåˆ†è§£ä¸ºXï¼ŒY
 	A = X.multiply(Y.transpose());
 	
 	for(int i=0;i<m;i++)
-		p.get(i).setf(X.getMatrix(i+1, 1),X.getMatrix(i+1, 2),X.getMatrix(i+1, 3),X.getMatrix(i+1, 4),X.getMatrix(i+1, 5));
+		p[i].setf(X.getMatrix(i+1, 1),X.getMatrix(i+1, 2),X.getMatrix(i+1, 3),X.getMatrix(i+1, 4),X.getMatrix(i+1, 5));
 	for(int i=0;i<n;i++)
-		c.get(i).setf(Y.getMatrix(i+1, 1),Y.getMatrix(i+1, 2),Y.getMatrix(i+1, 3),Y.getMatrix(i+1, 4),Y.getMatrix(i+1, 5));
+		c[i].setf(Y.getMatrix(i+1, 1),Y.getMatrix(i+1, 2),Y.getMatrix(i+1, 3),Y.getMatrix(i+1, 4),Y.getMatrix(i+1, 5));
 	
 }
 }

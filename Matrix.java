@@ -6,33 +6,33 @@ import java.util.*;
  
 class Matrix{
  
-    private int row;//è¡Œ
-    private int col;//åˆ— 
+    private int row;//ĞĞ 
+    private int col;//ÁĞ 
     double [][]Data;
   
-    public Matrix(int row, int col,double [][]Data) {		//æ„é€ å‡½æ•°
+    public Matrix(int row, int col,double [][]Data) {		//¹¹Ôìº¯Êı
         this.row = row;
         this.col = col; 
         this.Data = Data;
     }
  
-    public void setMatrix(int row , int col, double value) {	//è®¾å®šçŸ©é˜µä¸­æŸä¸€ä½ç½®çš„å€¼Öµ
+    public void setMatrix(int row , int col, double value) {	//Éè¶¨¾ØÕóÖĞÄ³Ò»Î»ÖÃµÄÖµ
         this.Data[row - 1][col - 1] = value;
     }
  
-    public double getMatrix(int row, int col) {		//è·å–çŸ©é˜µä¸­æŸä¸€ä½ç½®
+    public double getMatrix(int row, int col) {		//»ñÈ¡¾ØÕóÖĞÄ³Ò»Î»ÖÃ
         return Data[row - 1][col - 1] ;
     }
  
-    public int width() {		//è·å–è¡Œæ•°
+    public int width() {		//»ñÈ¡ĞĞÊı
         return row;
     }
  
-    public int height() {		//è·å–åˆ—æ•°
+    public int height() {		//»ñÈ¡ÁĞÊı
         return col;
     }
  
-    public Matrix add(Matrix b) {		//çŸ©é˜µåŠ æ³•
+    public Matrix add(Matrix b) {		//¾ØÕó¼Ó·¨
  
         if(this.width() != b.width() && this.height() != b.height()) {
             return null;
@@ -48,13 +48,13 @@ class Matrix{
  
         Matrix another = new Matrix(this.col,this.row,add);    
  
-        //System.out.println("after add:");
+        System.out.println("after add:");
  
         return another;
  
     }
  
-    public Matrix multiply(Matrix b) {		//çŸ©é˜µä¹˜æ³•
+    public Matrix multiply(Matrix b) {		//¾ØÕó³Ë·¨
  
         if(this.col != b.row) {
             return null;
@@ -80,13 +80,13 @@ class Matrix{
  
         Matrix another = new Matrix(this.row, b.col, mul);
  
-       // System.out.println("after multiply:");
+        System.out.println("after multiply:");
  
         return another;
  
     }
  
-    public Matrix transpose() {		//çŸ©é˜µè½¬ç½®
+    public Matrix transpose() {			//¾ØÕó×ªÖÃ
  
         double tran[][] = new double[this.col][this.row];
  
@@ -103,7 +103,7 @@ class Matrix{
         return another;
     }
  
-    public void show() {		//æ˜¾ç¤ºçŸ©é˜µ
+    public void show() {		//ÏÔÊ¾¾ØÕó
     	for(int i=0;i<row;i++) {
     		for(int j=0;j<col;j++)
     			System.out.print(Data[i][j]+"  ");
@@ -111,9 +111,38 @@ class Matrix{
     	}
     		
     }
+    
+ /*   public String toString() {	//×ª»¯Îª×Ö·û´®
+ 
+        DecimalFormat df = new DecimalFormat("0");
+ 
+        String result = "";
+ 
+        //result += df.format(Data[0][0]);
+ 
+        
+ 
+        for(int i = 0;i<this.row;i++) {
+ 
+            result += df.format(Data[i][0]);
+ 
+            for(int j = 1;j<this.col;j++) {
+ 
+                result += " " + df.format(Data[i][j]);
+ 
+            }
+ 
+            result +=  "\n";
+ 
+        }
+ 
+        return result;
  
     
-    public Matrix reverse() {		//çŸ©é˜µæ±‚é€†
+ 
+    }*/
+    
+    public Matrix reverse() {		//¾ØÕóÇóÄæ
         ReverseMartrix rm = new ReverseMartrix();
         
     	Matrix newMatrix = new Matrix(row,col,rm.getReverseMartrix(Data));

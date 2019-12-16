@@ -1,7 +1,7 @@
 package WTE;
 
-public class ReverseMartrix {		//çŸ©é˜µæ±‚é€†
-	public double[][] getConfactor(double[][] data, int h, int v) {			//è®¡ç®—æŸä¸€ä½ç½®çš„ä½™å­å¼
+public class ReverseMartrix {
+	public double[][] getConfactor(double[][] data, int h, int v) {			//¼ÆËãÄ³Ò»Î»ÖÃµÄÓà×ÓÊ½
 	    int H = data.length;
 	    int V = data[0].length;
 	    double[][] newdata = new double[H-1][V-1];
@@ -33,12 +33,12 @@ public class ReverseMartrix {		//çŸ©é˜µæ±‚é€†
 	}
 
 
-	public double getMartrixResult(double[][] data) {			//è®¡ç®—çŸ©é˜µå¯¹åº”è¡Œåˆ—å¼çš„å€¼
-	     // äºŒç»´çŸ©é˜µè®¡ç®—
+	public double getMartrixResult(double[][] data) {			//¼ÆËã¾ØÕó¶ÔÓ¦ĞĞÁĞÊ½µÄÖµ
+	     // ¶şÎ¬¾ØÕó¼ÆËã
 	    if(data.length == 2) {
 	        return data[0][0]*data[1][1] - data[0][1]*data[1][0];
 	    }
-	     // äºŒç»´ä»¥ä¸Šçš„çŸ©é˜µè®¡ç®—
+	     // ¶şÎ¬ÒÔÉÏµÄ¾ØÕó¼ÆËã
 	    double result = 0;
 	    int num = data.length;
 	    double[] nums = new double[num];
@@ -57,7 +57,7 @@ public class ReverseMartrix {		//çŸ©é˜µæ±‚é€†
 	    return result;
 	}
 
-	public double[][] getReverseMartrix(double[][] data) {		//è®¡ç®—é€†çŸ©é˜µ
+	public double[][] getReverseMartrix(double[][] data) {		//¼ÆËãÄæ¾ØÕó
 		double[][] newdata = new double[data.length][data[0].length];
 		double A = getMartrixResult(data);
 	//  System.out.println(A);
@@ -82,7 +82,7 @@ public class ReverseMartrix {		//çŸ©é˜µæ±‚é€†
 	    return newdata;
 	}
 
-	private double[][] trans(double[][] newdata) {			//äºŒç»´æ•°ç»„è½¬ç½®
+	private double[][] trans(double[][] newdata) {			//¶şÎ¬Êı×é×ªÖÃ
 	    // TODO Auto-generated method stub
 		double[][] newdata2 = new double[newdata[0].length][newdata.length];
 	    for(int i=0; i<newdata.length; i++) 
@@ -97,6 +97,7 @@ public class ReverseMartrix {		//çŸ©é˜µæ±‚é€†
 	        {3,1,0 },  
 	        {-1,-1,-2 },
 	    };
+
 	  public static void main(String[] args) {
 	        // TODO Auto-generated method stub
 	        ReverseMartrix rm = new ReverseMartrix();
