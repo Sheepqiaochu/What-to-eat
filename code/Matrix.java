@@ -6,7 +6,7 @@ import java.util.*;
  
 class Matrix{
  
-    private int row;//行 
+    private int row;//行
     private int col;//列 
     double [][]Data;
   
@@ -16,7 +16,7 @@ class Matrix{
         this.Data = Data;
     }
  
-    public void setMatrix(int row , int col, double value) {	//设定矩阵中某一位置的值
+    public void setMatrix(int row , int col, double value) {	//设定矩阵中某一位置的值ֵ
         this.Data[row - 1][col - 1] = value;
     }
  
@@ -48,7 +48,7 @@ class Matrix{
  
         Matrix another = new Matrix(this.col,this.row,add);    
  
-        System.out.println("after add:");
+        //System.out.println("after add:");
  
         return another;
  
@@ -80,13 +80,13 @@ class Matrix{
  
         Matrix another = new Matrix(this.row, b.col, mul);
  
-        System.out.println("after multiply:");
+       // System.out.println("after multiply:");
  
         return another;
  
     }
  
-    public Matrix transpose() {			//矩阵转置
+    public Matrix transpose() {		//矩阵转置
  
         double tran[][] = new double[this.col][this.row];
  
@@ -111,8 +111,7 @@ class Matrix{
     	}
     		
     }
-    
-    }*/
+ 
     
     public Matrix reverse() {		//矩阵求逆
         ReverseMartrix rm = new ReverseMartrix();
