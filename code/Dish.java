@@ -1,8 +1,8 @@
 package WTE;
 
-public class Dish {			//物品-特征矩阵Y
+public class Dish {			//物品类
 private int DID;			//物品ID
-private double f1;				//特征值f1-f5
+private double f1;				//物品特征值f1-f5
 private double f2;
 private double f3;
 private double f4;
@@ -17,7 +17,7 @@ public Dish(int id,double i1,double i2,double i3,double i4,double i5) {		//构�
 	this.f5 = i5;
 }
 
-public void show() {		//显示矩阵Y
+public void show() {		//显示信息
 	System.out.println(this.DID + "  " + this.f1 + "  " + this.f2 + "  " + this.f3 + "  " + this.f4 +"  " + this.f5);
 }
 
@@ -25,7 +25,7 @@ public int getid() {		//获取ID
 	return DID;
 }
 
-public double getf(int f) {	//获取特征值
+public double getf(int f) {	//获取特征值ֵ
 	switch(f) {
 	case 1:return f1;
 	case 2:return f2;
@@ -36,7 +36,7 @@ public double getf(int f) {	//获取特征值
 	}
 }
 
-public void setf(double i1,double i2,double i3,double i4,double i5) {
+public void setf(double i1,double i2,double i3,double i4,double i5) {	//设置特征值
 	this.f1 = i1;
 	this.f2 = i2;
 	this.f3 = i3;
