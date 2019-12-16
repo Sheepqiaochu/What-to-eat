@@ -1,5 +1,6 @@
 package com.example.eatwhat;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.eatwhat.MD5Utils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.net.HttpURLConnection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 //https://www.jianshu.com/p/fa6ecb9a8175
 
@@ -23,6 +42,11 @@ public class Login extends AppCompatActivity {
 
     private String user,psw,spPsw;//获取的用户名，密码，加密密码
     private EditText etUser,etPsw;
+    public static final MediaType JSON = MediaType.parse("application/json;charset=utf-8");
+    User auser;
+    boolean permit=false;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +55,12 @@ public class Login extends AppCompatActivity {
         init();
         //点击返回 回到上一页（此时是“我的”界面）
         //顶端返回按钮
+
+        ActionBar actionbar=getSupportActionBar();
+        if(actionbar!=null){
+            actionbar.hide();
+        }
+
         ImageButton returnbutton=(ImageButton)findViewById(R.id.button_return2);
         returnbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +99,21 @@ public class Login extends AppCompatActivity {
                 */
                 user=etUser.getText().toString().trim();
                 psw=etPsw.getText().toString().trim();
+
+                sendRequestWithOkHttp();    //通过okhttp传送请求
+
+                if(permit) {
+                    Toast.makeText(Login.this, "登陆成功辣", Toast.LENGTH_SHORT).show();
+                    Login.this.finish();
+                    ;
+                    Intent intent = new Intent(Login.this, ClientActivity.class);
+                    intent.putExtra("user", auser);   //传参
+                    startActivity(intent);
+                    return;
+                }
+
+                //后面的放弃？
+/*
                 //对当前用户输入的密码进行MD5加密再进行比对判断, MD5Utils.md5( ); psw 进行加密判断是否一致
                 String md5Psw= MD5Utils.md5(psw);
                 // md5Psw ; spPsw 为 根据从SharedPreferences中用户名读取密码
@@ -103,7 +148,7 @@ public class Login extends AppCompatActivity {
                     return;
                 }else {
                     Toast.makeText(Login.this,"莫得此用户",Toast.LENGTH_SHORT).show();
-                }
+                }*/
 
             }
         });
@@ -153,5 +198,82 @@ public class Login extends AppCompatActivity {
             }
         }
     }
+
+
+
+    private void sendRequestWithOkHttp(){       //通过okhttp传送请求
+        new Thread(new Runnable(){
+            public void run(){
+                HttpURLConnection connection=null;
+                BufferedReader reader=null;
+                try{
+                    OkHttpClient client=new OkHttpClient();
+
+                    /*RequestBody body= new FormBody.Builder()
+                            .add("phoneNumber","12345678901")
+                            .add("password","123456")
+                            .build();*/
+
+                    Map map=new HashMap<>();
+                    map.put("phoneNumber",user);
+                    map.put("password",psw);
+                    String param=new Gson().toJson(map);
+                    RequestBody body=RequestBody.create(JSON,param);
+                    //connection.setRequestMethod("POST");
+                    Request request=new Request.Builder()
+                            .url("http://101.201.56.86:90/login")   //服务器的json地址，到时候改这里
+                            .post(body)
+                            .build();
+                    Response response=client.newCall(request).execute();
+                    String responseData=response.body().string();
+                    parseJSONWithJSON(responseData);        //用json处理json数据
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void parseJSONWithJSON(String jsonData){    //用json处理json数据
+        try{
+            JSONObject jsonObject=new JSONObject(jsonData).getJSONObject("data");
+            auser=new User();
+            auser.setPhoneNumber(jsonObject.getString("phoneNumber"));
+            auser.setPassword(jsonObject.getString("password"));
+            auser.setName(jsonObject.getString("name"));
+            auser.setUid(jsonObject.getInt("uid"));
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        /*Gson gson=new Gson();
+        Respdata rdata=gson.fromJson(jsonData,Respdata.class);*/
+        if(auser.getUid()!=-1){
+            //允许登录
+            permit=true;
+            /*Toast.makeText(Login.this,"登陆成功辣",Toast.LENGTH_SHORT).show();
+            Login.this.finish();;
+            Intent intent=new Intent(Login.this,ClientActivity.class);
+            intent.putExtra("user",auser);   //传参
+            startActivity(intent);*/
+        }
+        else{
+            Toast.makeText(Login.this,"登陆失败",Toast.LENGTH_SHORT).show();
+        }
+
+        /*List<User> rUserList=gson.fromJson(jsonData,new TypeToken<List<User>>()
+        {}.getType());
+        for(User rUser:rUserList){
+            //RecommendFood mango = new RecommendFood(getRandomLengthName("Mango"), R.drawable.mango_pic);
+            //foodList.add(rFood);
+            if(user==rUser.getPhoneNumber()&&psw==rUser.getPassword())
+            {
+                //允许登录
+                Toast.makeText(Login.this,"登陆成功辣",Toast.LENGTH_SHORT).show();
+            }
+        }*/
+    }
+
 
 }

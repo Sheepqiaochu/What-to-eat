@@ -20,6 +20,7 @@ import java.util.List;
 public class ClientActivity extends AppCompatActivity {
 
     private List<Function> functionList=new ArrayList<>();
+    private User user; //这个变量user要传参传过来
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,26 @@ public class ClientActivity extends AppCompatActivity {
         ListView listView=(ListView) findViewById((R.id.list_function));
         listView.setAdapter(adapter);
 
+
+        user=(User)getIntent().getSerializableExtra("user");
+        if(user!=null) {
+            TextView usernameText = (TextView) findViewById(R.id.text_username);   //显示用户昵称、手机号
+            usernameText.setText(user.getName());
+            TextView phoneText = (TextView) findViewById(R.id.text_phone);   //显示用户昵称、手机号
+            //phoneText.setText("69779110");
+            phoneText.setText(user.getPhoneNumber());
+            //**********************************
+            /*
+            phoneText.post(new Runnable() {
+                @Override
+                public void run() {
+                    phoneText.setText("69779110");
+                }
+            });
+            */
+            //*********************************
+        }
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -43,7 +64,19 @@ public class ClientActivity extends AppCompatActivity {
                     Intent intent=new Intent(ClientActivity.this,Login.class);
                     startActivity(intent);
                 }
-
+                //************************************************
+                //注：暂时拿我的评价点进去当评分界面了
+                if(function.getName()=="我的评价")
+                {
+                    Intent intent=new Intent(ClientActivity.this,ClientRatefood.class);
+                    startActivity(intent);
+                }
+                //*************************************************
+                if(function.getName()=="账号管理")
+                {
+                    Intent intent=new Intent(ClientActivity.this,ClientInfo.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -67,10 +100,12 @@ public class ClientActivity extends AppCompatActivity {
             functionList.add(fun1);
             Function fun2=new Function("我的评价",R.drawable.fun2_pic);
             functionList.add(fun2);
+            /*
             Function fun3=new Function("我的收藏",R.drawable.fun3_pic);
             functionList.add(fun3);
             Function fun4=new Function("饮食习惯",R.drawable.fun4_pic);
             functionList.add(fun4);
+            */
             Function fun5=new Function("账号管理",R.drawable.fun5_pic);
             functionList.add(fun5);
         }

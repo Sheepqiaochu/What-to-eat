@@ -109,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true"
                 >
                 <org.angmarch.views.NiceSpinner
@@ -117,7 +117,7 @@
                     android:id="@+id/sp_spicy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     app:textTint="@color/account_input_color"
                     android:textSize="@dimen/font_18"
                     />
@@ -127,7 +127,16 @@
                     android:id="@+id/sp_sweet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
+                    app:textTint="@color/account_input_color"
+                    android:textSize="@dimen/font_18"/>
+
+                <org.angmarch.views.NiceSpinner
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/sp_acid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     app:textTint="@color/account_input_color"
                     android:textSize="@dimen/font_18"/>
 
@@ -136,10 +145,20 @@
                     android:id="@+id/sp_salty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_margin="10dp"
                     app:textTint="@color/account_input_color"
                     android:textSize="@dimen/font_18"
                     />
+
+                <org.angmarch.views.NiceSpinner
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/sp_oil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:textTint="@color/account_input_color"
+                    android:textSize="@dimen/font_18"/>
+
 <!--
                 <RadioGroup
                     android:id="@+id/radio_spicy"

@@ -67,6 +67,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
                         Toast.LENGTH_SHORT).show();*/
                 Intent intent=new Intent("com.example.eatwhat.ACTION_DETAIL");
                 intent.putExtra("food",food);   //传参
+                intent.putExtra("page",1);   //传参
                 context.startActivity(intent);
             }
         });
@@ -105,6 +106,16 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
         mFoodList_show.clear();
         for (RecommendFood food:mFoodList_backup){
             if (food.getName().contains(searchtext))
+                mFoodList_show.add(food);
+        }
+    }
+
+    public void setSelectedFoodList_show(double f1,double f2,double f3){   //选择筛选到的条目显示
+        mFoodList_show.clear();
+        for (RecommendFood food:mFoodList_backup){
+            if (food.getF1()>=f1&&food.getF1()<=(f1+2.5)&&
+                    food.getF2()>=f2&&food.getF2()<=(f2+2.5)&&
+                    food.getF3()>=f3&&food.getF3()<=(f3+2.5))
                 mFoodList_show.add(food);
         }
     }

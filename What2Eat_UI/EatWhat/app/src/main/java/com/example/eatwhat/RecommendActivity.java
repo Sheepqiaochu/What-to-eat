@@ -54,6 +54,9 @@ public class RecommendActivity extends AppCompatActivity implements View.OnClick
     private DrawerLayout mDrawerLayout;
     private boolean priceascend=true;
     private boolean excellencedescend=true;
+    private double f1;   //菜的特征
+    private double f2;
+    private double f3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,22 +111,30 @@ public class RecommendActivity extends AppCompatActivity implements View.OnClick
         //修改之后的另一种的spinner
         //辣！
         NiceSpinner sp_spicy=(NiceSpinner) findViewById(R.id.sp_spicy);
-        List<String> dataset1 = new LinkedList<>(Arrays.asList("辣!🌶🌶", "中辣！🌶","不辣！"));//给spinner传选项
+        List<String> dataset1 = new LinkedList<>(Arrays.asList("不辣", "微辣","中辣🌶","狠辣🌶🌶"));//给spinner传选项
         sp_spicy.attachDataSource(dataset1);
         //甜！
         NiceSpinner sp_sweet=(NiceSpinner) findViewById(R.id.sp_sweet);
-        List<String> dataset2 = new LinkedList<>(Arrays.asList("甜！🍬🍬", "中甜！🍬", "不甜！"));//给spinner传选项
+        List<String> dataset2 = new LinkedList<>(Arrays.asList("不甜", "微甜", "中甜🍬","狠甜🍬🍬"));//给spinner传选项
         sp_sweet.attachDataSource(dataset2);
+        //酸
+        NiceSpinner sp_acid=(NiceSpinner) findViewById(R.id.sp_acid);//不要在乎这个翻译
+        List<String> dataset3 = new LinkedList<>(Arrays.asList("不酸", "微酸", "中酸🍋","狠酸🍋🍋"));//给spinner传选项
+        sp_acid.attachDataSource(dataset3);
         //咸！
         NiceSpinner sp_salty=(NiceSpinner) findViewById(R.id.sp_salty);
-        List<String> dataset3 = new LinkedList<>(Arrays.asList("咸！🥫🥫", "中咸！🥫", "不咸！"));//给spinner传选项
-        sp_salty.attachDataSource(dataset3);
-
+        List<String> dataset4 = new LinkedList<>(Arrays.asList("不咸", "微咸", "中咸🥫","狠咸🥫🥫"));//给spinner传选项
+        sp_salty.attachDataSource(dataset4);
+        //油
+        NiceSpinner sp_oil=(NiceSpinner) findViewById(R.id.sp_oil);
+        List<String> dataset5 = new LinkedList<>(Arrays.asList("不油", "微油", "中油🍗","狠油🍗🍗"));//给spinner传选项
+        sp_oil.attachDataSource(dataset5);
 
         sp_spicy.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
                 String item = (String) parent.getItemAtPosition(position);
+                f1=2.5*position;
                 Toast.makeText(RecommendActivity.this, "选择了 " + item, Toast.LENGTH_SHORT).show();
             }
         });
@@ -131,6 +142,7 @@ public class RecommendActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
                 String item = (String) parent.getItemAtPosition(position);
+                f2=2.5*position;
                 Toast.makeText(RecommendActivity.this, "选择了 " + item, Toast.LENGTH_SHORT).show();
             }
         });
@@ -138,6 +150,7 @@ public class RecommendActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
                 String item = (String) parent.getItemAtPosition(position);
+                f3=2.5*position;
                 Toast.makeText(RecommendActivity.this, "选择了 " + item, Toast.LENGTH_SHORT).show();
             }
         });
@@ -255,34 +268,26 @@ public class RecommendActivity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.confirm_select:   //确认筛选
 
-                int featurenum=3;   //特征类型数
-                /*
-                RadioGroup[] radgroup=new RadioGroup[featurenum];
-                radgroup[0] = (RadioGroup) findViewById(R.id.radio_spicy);
-                radgroup[1] = (RadioGroup) findViewById(R.id.radio_sweet);
-                radgroup[2] = (RadioGroup) findViewById(R.id.radio_salty);
+                int featurenum=5;   //特征类型数
 
-                for(int j=0;j<featurenum;j++)
-                for (int i = 0; i < radgroup[j].getChildCount(); i++) {
-                    RadioButton rd = (RadioButton) radgroup[j].getChildAt(i);
 
-                    if (rd.isChecked()) {
-                        //处理筛选的食物特征
-                        Toast.makeText(getApplicationContext(), "点击提交按钮,获取你选择的是:" + rd.getText(), Toast.LENGTH_LONG).show();
-                        break;
-                    }
-                }
-*/
                 NiceSpinner[] spinnerGroup=new NiceSpinner[featurenum];
                 spinnerGroup[0]=(NiceSpinner) findViewById(R.id.sp_spicy);
                 spinnerGroup[1]=(NiceSpinner) findViewById(R.id.sp_sweet);
-                spinnerGroup[2]=(NiceSpinner) findViewById(R.id.sp_salty);
+                spinnerGroup[2]=(NiceSpinner) findViewById(R.id.sp_acid);
+                spinnerGroup[3]=(NiceSpinner) findViewById(R.id.sp_salty);
+                spinnerGroup[4]=(NiceSpinner) findViewById(R.id.sp_oil);
 
                 String[] strings=new String[featurenum];
                 for(int j=0;j<featurenum;j++) {
                     strings[j]= (String) spinnerGroup[j].getItemAtPosition(spinnerGroup[j].getSelectedIndex());
                 }
-                Toast.makeText(getApplicationContext(),"你选择了 <"+strings[0]+strings[1]+strings[2]+">！", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"你选择了 <"+strings[0]+" "+strings[1]+" "+strings[2]
+                        +" "+strings[3]+" "+strings[4]+">！", Toast.LENGTH_SHORT).show();
+
+                adapter.setSelectedFoodList_show(f1,f2,f3); //筛选
+                adapter.notifyDataSetChanged();
+
                 mDrawerLayout.closeDrawer(Gravity.RIGHT);
                 break;
             default:
@@ -292,25 +297,26 @@ public class RecommendActivity extends AppCompatActivity implements View.OnClick
 
     private void initFoods() {         //初始化食物们，到时候没用了可以删掉
         //for (int i = 0; i < 2; i++) {
-            RecommendFood apple = new RecommendFood("apple",getRandomLengthName("Apple"), R.drawable.apple_pic,10,1);
+
+            RecommendFood apple = new RecommendFood("apple",getRandomLengthName("Apple"), R.drawable.apple_pic,10,1,1.3,1.3,1.3);
             foodList.add(apple);
-            RecommendFood banana = new RecommendFood("banana",getRandomLengthName("Banana"), R.drawable.banana_pic,8,2);
+            RecommendFood banana = new RecommendFood("banana",getRandomLengthName("Banana"), R.drawable.banana_pic,8,2,1.6,2.9,6.6);
             foodList.add(banana);
-            RecommendFood orange = new RecommendFood("orange",getRandomLengthName("Orange"), R.drawable.orange_pic,6,3);
+            RecommendFood orange = new RecommendFood("orange",getRandomLengthName("Orange"), R.drawable.orange_pic,6,3,3.9,4.4,8.7);
             foodList.add(orange);
-            RecommendFood watermelon = new RecommendFood("watermelon",getRandomLengthName("Watermelon"), R.drawable.watermelon_pic,11,4);
+            RecommendFood watermelon = new RecommendFood("watermelon",getRandomLengthName("Watermelon"), R.drawable.watermelon_pic,11,4,0.8,0.9,7.7);
             foodList.add(watermelon);
-            RecommendFood pear = new RecommendFood("pear",getRandomLengthName("Pear"), R.drawable.pear_pic,9,5);
+            RecommendFood pear = new RecommendFood("pear",getRandomLengthName("Pear"), R.drawable.pear_pic,9,5,1.3,1.3,1.3);
             foodList.add(pear);
-            RecommendFood grape = new RecommendFood("grape",getRandomLengthName("Grape"), R.drawable.grape_pic,12,6);
+            RecommendFood grape = new RecommendFood("grape",getRandomLengthName("Grape"), R.drawable.grape_pic,12,6,1.3,1.3,1.3);
             foodList.add(grape);
-            RecommendFood pineapple = new RecommendFood("pineapple",getRandomLengthName("Pineapple"), R.drawable.pineapple_pic,6,7);
+            RecommendFood pineapple = new RecommendFood("pineapple",getRandomLengthName("Pineapple"), R.drawable.pineapple_pic,6,7,1.6,2.9,6.6);
             foodList.add(pineapple);
-            RecommendFood strawberry = new RecommendFood("strawberry",getRandomLengthName("Strawberry"), R.drawable.strawberry_pic,8,8);
+            RecommendFood strawberry = new RecommendFood("strawberry",getRandomLengthName("Strawberry"), R.drawable.strawberry_pic,8,8,1.6,2.9,6.6);
             foodList.add(strawberry);
-            RecommendFood cherry = new RecommendFood("cherry",getRandomLengthName("Cherry"), R.drawable.cherry_pic,13,9);
+            RecommendFood cherry = new RecommendFood("cherry",getRandomLengthName("Cherry"), R.drawable.cherry_pic,13,9,0.8,0.9,7.7);
             foodList.add(cherry);
-            RecommendFood mango = new RecommendFood("mango",getRandomLengthName("Mango"), R.drawable.mango_pic,5,10);
+            RecommendFood mango = new RecommendFood("mango",getRandomLengthName("Mango"), R.drawable.mango_pic,5,10,0.8,0.9,7.7);
             foodList.add(mango);
        // }
     }

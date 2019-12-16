@@ -17,6 +17,7 @@ public class RecommendDetail extends AppCompatActivity {
     private ImageView imageView;
     private TextView textView;
     private RecommendFood food; //这个变量food要传参传过来
+    private int page; //这个变量page要传参传过来
 
     public RecommendDetail(){}
     public RecommendDetail(RecommendFood food){
@@ -35,6 +36,7 @@ public class RecommendDetail extends AppCompatActivity {
         }
 
         food=(RecommendFood)getIntent().getSerializableExtra("food");
+        page=(Integer)getIntent().getSerializableExtra("page");
 
         /*
         imageView=(ImageView)findViewById(R.id.image_recommend_detail); //设置图像源
@@ -62,8 +64,16 @@ public class RecommendDetail extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //添加点击事件
-                Intent intent=new Intent("com.example.eatwhat.ACTION_2");
-                startActivity(intent);
+                if(page==0) { //返回首页
+                    Intent intent = new Intent(RecommendDetail.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else{   //返回探索页
+                    Intent intent = new Intent(RecommendDetail.this, RecommendActivity.class);
+                    startActivity(intent);
+                }
+                //Intent intent=new Intent("com.example.eatwhat.ACTION_2");
+                //startActivity(intent);
             }
         });
     }
