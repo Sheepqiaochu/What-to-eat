@@ -10,8 +10,9 @@
     <LinearLayout
 
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:layout_marginTop="10dp"
+        android:orientation="horizontal"
         >
 
         <!--
@@ -24,6 +25,24 @@
             android:layout_weight="1"
             android:src="@drawable/user_pic1" />
             -->
+        <androidx.cardview.widget.CardView
+
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="top"
+            >
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/user_pic1" />
+        </androidx.cardview.widget.CardView>
+        <!--
         <com.yinglan.shadowimageview.ShadowImageView
             android:id="@+id/user_pic"
             android:layout_marginLeft="10dp"
@@ -34,11 +53,13 @@
             app:shadowColor="@color/black_alpha_128"
             app:shadowRound="20dp"
             app:shadowSrc="@drawable/user_pic1" />
-
+-->
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="20dp">
             <TextView
                 android:id="@+id/text_username"
                 android:layout_width="wrap_content"
@@ -47,7 +68,7 @@
                 android:layout_marginTop="10dp"
                 android:text="UserName"
                 android:textColor="#444"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:typeface="serif" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,10 +86,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginTop="10dp"
-                    android:text=""
+                    android:text="68779110"
                     android:minEms="8"
                     android:textColor="#444"
-                    android:textSize="28sp"
+                    android:textSize="22sp"
                     android:typeface="monospace" />
             </LinearLayout>
 
@@ -79,6 +100,7 @@
     </LinearLayout>
 
     <ListView
+        android:layout_marginTop="20dp"
         android:id="@+id/list_function"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

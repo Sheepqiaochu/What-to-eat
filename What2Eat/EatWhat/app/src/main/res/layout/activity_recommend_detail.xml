@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/button_return"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/colorPrimaryDark"
+            android:contentDescription="@null"
+            app:srcCompat="@mipmap/btn_back_normal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
+            <TextView
+                android:id="@+id/tv_fooddetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="详细介绍"
+                android:textSize="20dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <!--Button
+        android:id="@+id/button_return"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/return_recommend" /-->
+    <!--
+        <ImageView
+            android:id="@+id/image_recommend_detail1"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_weight="1"/>
+            -->
+
+    <com.yinglan.shadowimageview.ShadowImageView
+        android:id="@+id/image_recommend_detail"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        app:shadowColor="@color/black_alpha_128"
+        app:shadowRound="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/text_recommend_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:text="俺是名称"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            />
+
+        <TextView
+            android:id="@+id/text_recommend_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="俺是价格"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            />
+        <!--
+                <TextView
+                    android:id="@+id/text_recommend_excellence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="俺是推荐度"
+                    android:layout_marginLeft="20dp"
+                    />
+        -->
+        <com.sackcentury.shinebuttonlib.ShineButton
+            android:id="@+id/bt_star"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@android:color/darker_gray"
+            app:allow_random_color="false"
+            app:big_shine_color="#FF9800"
+            app:btn_color="@android:color/darker_gray"
+            app:btn_fill_color="#FFC107"
+            app:click_animation_duration="200"
+            app:enable_flashing="false"
+            app:shine_animation_duration="1500"
+            app:shine_count="8"
+            app:shine_turn_angle="10"
+            app:siShape="@raw/star"
+            app:small_shine_color="#CC9999"
+            app:small_shine_offset_angle="20" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_recommend_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="俺是详细介绍"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:textColor="#777777"
+        />
+
+</LinearLayout>

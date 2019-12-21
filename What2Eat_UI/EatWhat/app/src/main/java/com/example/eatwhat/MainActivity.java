@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -139,6 +140,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 currentFood=recommendFood[refreshtime];
                 imageView.setImageResource(recommendFood[refreshtime].getImageId());
                 textView.setText(recommendFood[refreshtime].getName());
+                numLike=0;
+                numDislike=0;
+                likeButton.setChecked(false);
+                dislikeButton.setChecked(false);
                 break;
             case R.id.bt_like:      //点击like按钮
                 //调用setExcellence函数改变正在推荐的食物的推荐度
