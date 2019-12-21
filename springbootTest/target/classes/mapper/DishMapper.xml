@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bootTest.dao.DishDao">
+
+	<resultMap id="BaseResultMap" type="com.bootTest.domain.Dish">
+		<id column="id" property="did" />
+		<result column="image_path" property="imagePath" />
+		<result column="name" property="name" />
+		<result column="price" property="price" />
+		<result column="rname" property="rname" />
+		<result column="raddress" property="raddress" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id, image_path, name, price,rname,raddress,f1,f2,f3,f4,f5
+	</sql>
+	
+	<select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from dish,restaurant
+		where id = #{did} and dish.rid=restaurant.rid
+	</select>
+	
+	<select id="findAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from dish,restaurant
+		where dish.rid=restaurant.rid
+	</select>
+	
+	<select id="findDishCount" resultType="java.lang.Integer">
+		select count(dish.id)
+		from dish
+	</select>
+	
+	<select id="getFavorite" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		select did
+		from favorite
+		where uid=#{uid}
+	</select>
+	
+	<select id="isFavorite" resultType="java.lang.String" parameterType="java.lang.Integer">
+		select did
+		from favorite
+		where uid=#{uid} and did=#{did}
+	</select>
+	
+	<insert id="insertFavorite" parameterType="java.lang.Integer">
+		insert into favorite (uid,did)
+		values (#{uid},#{did})
+	</insert>
+	
+	<delete id="deleteFavorite" parameterType="java.lang.Integer">
+		delete from favorite
+		where uid=#{uid} and did=#{did}
+	</delete>
+
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bootTest.dao.DishDao">
+
+	<select id="findFeatureById" resultType="com.bootTest.domain.DishFeature" parameterType="java.lang.Integer">
+		select f1,f2,f3,f4,f5
+		from dish
+		where id = #{did}
+	</select>
+	
+	<update id="updateDishFeature" parameterType="com.bootTest.domain.DishFeature">
+		update dish set
+			f1 = #{dishfeature.f1},
+			f2 = #{dishfeature.f2},
+			f3 = #{dishfeature.f3},
+			f4 = #{dishfeature.f4},
+			f5 = #{dishfeature.f5}
+		where id = #{dishfeature.did}
+	</update>
+	
+	<select id="findAllDishFeature" resultType="com.bootTest.domain.DishFeature" >
+		select dish.id did,f1,f2,f3,f4,f5
+		from dish
+	</select>
+	
+</mapper>
